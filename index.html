@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffc0cb, #f7ede2);
+            text-align: center;
+        }
+        h1 {
+            color: #f51d1d;
+        }
+        #valentineImage {
+            width: 200px;
+        }
+        #yesButt {
+            background-color: #06d6a0;
+            transition: transform 0.3s;
+            margin-right: 10px;
+            width: 120px;
+            font-size: 30px;
+            height: 40px;
+            color: #fff;
+            margin-left: -140px;
+        }
+        #no {
+            position: absolute;
+            background-color: #ef476f;
+            transition: transform 0.3s;
+            margin-left: 10px;
+            width: 120px;
+            height: 40px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my valentine?</h1>
+    <img id="valentineImage" src="https://i.imgur.com/gyvIIrO.png">
+    <br><br><br>
+    <button id="yesButt">Yes</button>
+    <button id="no">No</button>
+
+    <script>
+        document.getElementById("yesButt").addEventListener("click", function() {
+            alert("Ha! I knew it, obvious answer right?");
+        });
+
+        var yesButt = document.getElementById("yesButt");
+        var no = document.getElementById("no");
+        var valentineImage = document.getElementById("valentineImage");
+
+        var noTexts = ["Are you sure?", "ARE YOU SUPER SURE?", "POOKIE GIVE ME A CHANCE!!"];
+        var imageSources = [
+            "https://i.imgur.com/gyvIIrO.png", 
+            "https://i.imgur.com/gyvIIrO.png",
+            "https://i.imgur.com/gyvIIrO.png"
+        ];
+
+        no.addEventListener("click", function() {
+            var randomIndex = Math.floor(Math.random() * noTexts.length);
+            no.innerText = noTexts[randomIndex];
+
+            var i = Math.floor(Math.random() * (window.innerWidth - 150)); 
+            var j = Math.floor(Math.random() * (window.innerHeight - 150)); 
+            no.style.left = i + "px";
+            no.style.top = j + "px";
+
+            var currentWidth = yesButt.offsetWidth;
+            var currentHeight = yesButt.offsetHeight;
+            
+            if (currentWidth < 300) {
+                yesButt.style.width = currentWidth + 30 + "px";
+                yesButt.style.height = currentHeight + 10 + "px";
+            }
+
+            if (imageSources.length > 0) {
+                var randomImageIndex = Math.floor(Math.random() * imageSources.length);
+                valentineImage.src = imageSources[randomImageIndex];
+            }
+        });
+    </script>
+</body>
+</html>
