@@ -45,7 +45,7 @@
 
     <script>
         document.getElementById("yesButt").addEventListener("click", function() {
-            alert("Ha! I knew it, obvious answer right?");
+            alert("WOOOO! LETS FUCKING GO!!!!");
         });
 
         var yesButt = document.getElementById("yesButt");
@@ -59,7 +59,7 @@
             "https://i.imgur.com/gyvIIrO.png"
         ];
 
-        no.addEventListener("click", function() {
+        no.addEventListener("mouseover", function() {
             var randomIndex = Math.floor(Math.random() * noTexts.length);
             no.innerText = noTexts[randomIndex];
 
@@ -71,7 +71,7 @@
             var currentWidth = yesButt.offsetWidth;
             var currentHeight = yesButt.offsetHeight;
             
-            if (currentWidth < 300) {
+            if (currentWidth < 500) {
                 yesButt.style.width = currentWidth + 30 + "px";
                 yesButt.style.height = currentHeight + 10 + "px";
             }
